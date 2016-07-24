@@ -1,8 +1,8 @@
 #!/bin/bash
 
 yyyymmdd=$(yyyymmdd)
-file=journal-${yyyymmdd}.tex
 index=0
+file=journal-${yyyymmdd}-${index}.tex
 
 while [ -f ${file} ]
 do
@@ -18,5 +18,8 @@ cat<<EOF>${file}
 \bye
 EOF
 
+echo ${file}
+
 git add ${file}
+
 emacs ${file} &

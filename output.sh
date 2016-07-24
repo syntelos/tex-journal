@@ -1,5 +1,9 @@
 #!/bin/bash
 
+gen_ps=false
+gen_pdf=false
+gen_png=true
+
 function usage {
 
     cat<<EOF>&2
@@ -21,6 +25,16 @@ Description
 
   Write missing or stale targets for sources.  Reports 'U' for write,
   'S' for skip, and 'X' for error.
+  
+  
+Synopsis
+
+  ${0} --last
+
+Description
+
+  Overwrite the last target.  Reports 'U' for write, and 'X' for
+  error.
 
 EOF
 
@@ -28,13 +42,33 @@ EOF
 }
 function cache_test {
 
-    [ ! -f ${tgt2} ]||[ $src -nt ${tgt2} ]||[ preamble.tex -nt ${tgt2} ]
+    [ ! -f ${tgt_dvi} ]||[ $src -nt ${tgt_dvi} ]||[ preamble.tex -nt ${tgt_dvi} ]
 }
 function overwrite {
 
-    tex ${src} && dvips ${tgt0} && ps2pdf ${tgt1}
+    if tex ${src}
+    then
+	git add ${tgt_dvi}
 
-    git add ${tgt0} ${tgt1} ${tgt2}
+	if ${gen_ps} && dvips ${tgt_dvi}
+	then
+	    git add ${tgt_ps}
+
+	    if ${gen_pdf} && ps2pdf ${tgt_ps} 
+	    then
+		git add ${tgt_pdf}
+	    fi
+	fi
+
+	if ${gen_png} && dvipng -T bbox -o ${tgt_png} ${tgt_dvi}
+	then
+	    git add ${tgt_png}
+	fi
+
+	return 0
+    else
+	return 1
+    fi
 }
 function list {
 
@@ -43,9 +77,10 @@ function list {
 	
 	name=$(basename $src .tex)
 
-	tgt2=${name}.pdf
-	tgt1=${name}.ps
-	tgt0=${name}.dvi
+	tgt_png=${name}.png
+	tgt_pdf=${name}.pdf
+	tgt_ps=${name}.ps
+	tgt_dvi=${name}.dvi
 
 	if cache_test
 	then
@@ -65,9 +100,10 @@ function update {
 	
 	name=$(basename $src .tex)
 
-	tgt2=${name}.pdf
-	tgt1=${name}.ps
-	tgt0=${name}.dvi
+	tgt_png=${name}.png
+	tgt_pdf=${name}.pdf
+	tgt_ps=${name}.ps
+	tgt_dvi=${name}.dvi
 
 	if cache_test
 	then
@@ -87,6 +123,27 @@ function update {
 	fi
     done
 }
+function last {
+
+    src=$(ls journal-*.tex | tail -n 1 )
+
+    name=$(basename $src .tex)
+
+    tgt_png=${name}.png
+    tgt_pdf=${name}.pdf
+    tgt_ps=${name}.ps
+    tgt_dvi=${name}.dvi
+
+    if overwrite
+    then
+
+	echo "U ${name}"
+    else
+
+	echo "X ${name}"
+	break
+    fi
+}
 
 
 #
@@ -94,6 +151,10 @@ function update {
 case "${1}" in
     --list)
 	list
+	;;
+
+    --last)
+	last
 	;;
 
     --update)
