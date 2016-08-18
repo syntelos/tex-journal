@@ -1,13 +1,14 @@
 #!/bin/bash
 
-file=$(adds | grep '\.png$' | tail -n 1)
+file=$(adds | grep '\.tex$' | tail -n 1)
 
 if [ -n "${file}" ]&&[ -f "${file}" ]
 then
     if [ -n "${1}" ]
     then
 	fext="${1}"
-	base=$(basename ${file} ".png" )
+	base=$(basename ${file} ".tex" )
+
 	if [ -n "$(echo "${fext}" | egrep '^\.')" ]
 	then
 	    file="${base}${fext}"
