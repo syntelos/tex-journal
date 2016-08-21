@@ -44,9 +44,40 @@ function cache_test {
 
     [ ! -f ${tgt_dvi} ]||[ $src -nt ${tgt_dvi} ]||[ preamble.tex -nt ${tgt_dvi} ]
 }
-function overwrite {
+function compile {
 
-    if tex ${src}
+    #
+    if [ -z "${src}" ]
+    then
+	cat<<EOF>&2
+$0 function compile missing parameter 'src'.
+EOF
+	return 1
+    fi
+
+    #
+    if [ -n "$(egrep '^\\input preamble' ${src} )" ]
+    then
+
+	compiler='tex'
+
+    elif [ -n "$(egrep '^\\documentclass' ${src} )" ]
+    then
+
+	compiler='latex'
+
+    else
+	cat<<EOF>&2
+$0 error determining compiler for '${src}'.
+EOF
+	return 1
+    fi
+
+    #
+    echo ${compiler} ${src}
+
+    #
+    if ${compiler} ${src}
     then
 	git add ${tgt_dvi}
 
@@ -108,7 +139,7 @@ function update {
 	if cache_test
 	then
 
-	    if overwrite
+	    if compile
 	    then
 
 		echo "U ${name}"
@@ -134,14 +165,13 @@ function last {
     tgt_ps=${name}.ps
     tgt_dvi=${name}.dvi
 
-    if overwrite
+    if compile
     then
 
 	echo "U ${name}"
     else
 
 	echo "X ${name}"
-	break
     fi
 }
 
