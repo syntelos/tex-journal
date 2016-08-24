@@ -1,6 +1,6 @@
 #!/bin/bash
 
-file=$(adds | grep '\.tex$' | tail -n 1)
+file=$(ls journal-*.tex | tail -n 1)
 
 if [ -n "${file}" ]&&[ -f "${file}" ]
 then
