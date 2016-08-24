@@ -1,6 +1,6 @@
 #!/bin/bash
 
-file=$(adds | grep '\.png$' | tail -n 1 )
+file=$(ls journal-*.png | tail -n 1 )
 
 if [ "${file}" ]
 then
