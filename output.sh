@@ -1,8 +1,8 @@
 #!/bin/bash
 
-gen_ps=false
-gen_pdf=false
-gen_png=true
+gen_ps=true
+gen_pdf=true
+gen_png=false
 
 function usage {
 

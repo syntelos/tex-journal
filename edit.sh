@@ -1,13 +1,42 @@
 #!/bin/bash
 
-file=$(ls journal-*.png | tail -n 1 )
+file_pdf=$(ls journal-*.pdf | tail -n 1 )
 
-if [ "${file}" ]
+file_png=$(ls journal-*.png | tail -n 1 )
+
+
+
+if [ "${file_pdf}" ]
 then
-    gimp ${file}  &
+    evince ${file_pdf}  
+
+    if [ "${file_png}" ]
+    then
+	gimp ${file_png}  &
+    else
+	cat<<EOF>&2
+$0: file "${file_png}" not found.
+EOF
+	exit 1
+    fi
+
 else
     cat<<EOF>&2
-$0: file not found.
+$0: file "${file_pdf}" not found.
 EOF
+
+    if [ "${file_png}" ]
+    then
+	gimp ${file_png}  &
+    else
+	cat<<EOF>&2
+$0: file "${file_png}" not found.
+EOF
+	exit 1
+    fi
+
     exit 1
 fi
+
+
+
