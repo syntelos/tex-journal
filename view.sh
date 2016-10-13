@@ -1,9 +1,8 @@
 #!/bin/bash
 
-file_pdf=$(ls journal-*.pdf | tail -n 1 )
+file_pdf=$(./file.sh pdf)
 
-file_png=$(ls journal-*.png | tail -n 1 )
-
+file_png=$(./file.sh png)
 
 
 if [ "${file_pdf}" ]
