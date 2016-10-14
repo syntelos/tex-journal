@@ -7,7 +7,7 @@ then
     if [ -n "${1}" ]
     then
 	fext="${1}"
-	base=$(basename ${file} ".txt" )
+	base=$(echo ${file} | sed 's%\.txt$%%; s%\.tex$%%;' )
 
 	if [ -n "$(echo "${fext}" | egrep '^\.')" ]
 	then
