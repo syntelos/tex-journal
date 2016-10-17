@@ -5,7 +5,7 @@ file_pdf=$(./file.sh pdf)
 file_png=$(./file.sh png)
 
 
-if [ "${file_pdf}" ]
+if [ -f "${file_pdf}" ]
 then
     evince ${file_pdf}  
 
@@ -14,7 +14,7 @@ else
 $0: file "${file_pdf}" not found.
 EOF
 
-    if [ "${file_png}" ]
+    if [ -f "${file_png}" ]
     then
 	eog ${file_png}  &
     else
@@ -24,8 +24,6 @@ EOF
 	exit 1
     fi
 
-    exit 1
 fi
 
-
-
+exit 0
