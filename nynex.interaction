@@ -1,0 +1,14 @@
+\input preamble
+
+$ \alpha.\  \forall \ P \ \exists \ \omega. $
+
+$ \beta.\  P \equiv \epsilon. $
+
+$ \gamma.\  nynex(1) \rightarrow nynex(2). $
+
+$ \sigma.\  LA \rightarrow WH. $
+
+
+
+
+\bye
