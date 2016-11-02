@@ -74,6 +74,7 @@ EOF
     fi
 
     #
+    #
     echo ${compiler} ${src}
 
     #
@@ -81,21 +82,38 @@ EOF
     then
 	git add ${tgt_dvi}
 
-	if ${gen_ps} && dvips ${tgt_dvi}
+	if [ "latex" = "${compiler}" ]
 	then
-	    git add ${tgt_ps}
-
-	    if ${gen_pdf} && ps2pdf ${tgt_ps} 
+	    if dvips ${tgt_dvi}
 	    then
-		git add ${tgt_pdf}
+
+		git add ${tgt_ps}
+
+		if ps2pdf ${tgt_ps} 
+		then
+		    git add ${tgt_pdf}
+		else
+		    return 1
+		fi
+	    else
+		return 1
+	    fi
+	else
+	    if ${gen_ps} && dvips ${tgt_dvi}
+	    then
+		git add ${tgt_ps}
+
+		if ${gen_pdf} && ps2pdf ${tgt_ps} 
+		then
+		    git add ${tgt_pdf}
+		fi
+	    fi
+
+	    if ${gen_png} && dvipng -T bbox -o ${tgt_png} ${tgt_dvi}
+	    then
+		git add ${tgt_png}
 	    fi
 	fi
-
-	if ${gen_png} && dvipng -T bbox -o ${tgt_png} ${tgt_dvi}
-	then
-	    git add ${tgt_png}
-	fi
-
 	return 0
     else
 	return 1
