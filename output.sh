@@ -174,7 +174,7 @@ function update {
 }
 function last {
 
-    src=$(ls journal-*.tex | tail -n 1 )
+    src=$(./file.sh)
 
     name=$(basename $src .tex)
 
