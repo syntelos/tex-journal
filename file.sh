@@ -80,8 +80,9 @@ do
 done
 
 #
+#set -x
 #
-file=$(ls journal-*.{tex,txt} | tail -n 1)
+file=$(ls journal-*.{tex,txt} | sort -V | tail -n 1)
 
 if [ -n "${file}" ]&&[ -f "${file}" ]
 then
