@@ -1,1 +1,1 @@
-rm $(orps)
+rm -f $(orps)
