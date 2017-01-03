@@ -30,6 +30,15 @@ Description
   single digit N.
 
 
+Synopsis
+
+  $0 %[s]S
+
+Description
+
+  Optional file name substring.
+
+
 EOF
     return 1
 }
@@ -39,6 +48,7 @@ EOF
 fext=tex
 del_date=0
 del_item=0
+substring=''
 
 #
 #
@@ -60,6 +70,10 @@ do
 	    del_item=$(( ${exp} ))
 
 	    del_item="$(echo ${del_item} | sed 's/./& /; s/^ //; s/ $//; s/^[0-9]/+ &/;')"
+	    ;;
+
+	%s*)
+	    substring=$(echo "${1}" | sed 's^%s^^')
 	    ;;
 
 	[+-]*)
@@ -111,7 +125,12 @@ then
     fi
 
 
-    file="${base}.${fext}"
+    if [ -n "${substring}" ]
+    then
+	file="${base}-${substring}.${fext}"
+    else
+	file="${base}.${fext}"
+    fi
 
     echo "${file}"
 
