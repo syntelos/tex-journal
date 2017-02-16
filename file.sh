@@ -96,12 +96,12 @@ done
 #
 #set -x
 #
-file=$(ls journal-*.{tex,txt} | sort -V | egrep -ve '[0-9][0-9][0-9][0-9][0-9][0-9]-[0-9]-[a-zA-Z]' | tail -n 1 )
+file=$(ls journal-*.{txt,tex,png,pdf} | sort -V | egrep -ve '[0-9][0-9][0-9][0-9][0-9][0-9]-[0-9]-[a-zA-Z]' | tail -n 1 )
 
 if [ -n "${file}" ]&&[ -f "${file}" ]
 then
 
-    digits=$(echo ${file} | sed 's%journal-%%; s%\.txt$%%; s%\.tex$%%;' )
+    digits=$(echo ${file} | sed 's%journal-%%; s%\..*$%%;' )
 
     if [ "0" != "${del_date}" ] || [ "0" != "${del_item}" ]
     then
