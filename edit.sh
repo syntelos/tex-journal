@@ -1,8 +1,8 @@
 #!/bin/bash
 
-file_pdf=$(./file.sh pdf )
+file_pdf=$(./file.sh $* pdf )
 
-file_png=$(./file.sh png )
+file_png=$(./file.sh $* png )
 
 
 
