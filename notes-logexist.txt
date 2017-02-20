@@ -30,19 +30,6 @@
 
   consciousness, framed (@logexist)
 
-  [OUT]
-
-  In this context it is natural and constructive to introduce the frame,
-  $\phi$, as the frame or abstraction operator.  An operator is not
-  itself an epistemological fact.  As an adjective in the {\it adjective
-  - noun} notation, it produces a new fact of epistemological exposition
-  when composed with a term that is a metaphysical fact or assertion or
-  a scientific hypothetical proposition.  The reference frame first
-  appeared in (relativistic) Physics as $\phi\alpha$ meaning the context
-  or frame relative to which some logical object represented by the term
-  $\alpha$ is a fact or is known.
-
-
 [PUB] journal-20170218-0.tex
 
   intro to th spiritual state of being in @logexist
