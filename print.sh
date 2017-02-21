@@ -1,1 +1,1 @@
-./output.sh --last
+./output.sh --last $*

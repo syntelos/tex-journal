@@ -174,7 +174,7 @@ function update {
 }
 function last {
 
-    src=$(./file.sh)
+    src=$(./file.sh $* )
 
     name=$(basename $src .tex)
 
@@ -202,7 +202,8 @@ case "${1}" in
 	;;
 
     --last)
-	last
+	shift
+	last $*
 	;;
 
     --update)
