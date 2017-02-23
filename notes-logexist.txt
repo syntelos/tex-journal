@@ -1,11 +1,23 @@
 
 +-+-+
 
- understanding and comprehension
+ abstraction in thought and communication
 
 +-+-+
 
- language and communication
+ language and communication, understanding and comprehension
+
+   context, language (abstract), language contextualized (concrete), conceptualization, serialization, expression, recognition, understanding, comprehension, [belief]
+
+     formal,- formal subjective and formal objective
+
+       fiction,- belief [free] subject to abstraction, recognition, understanding and comprehension
+
+       nonfiction,- belief boolean (as above)
+
+     informal,- informal subjective, informal objective, informal inductive subjective, informal inductive fiction
+
+
 
 +-+-+
 
@@ -19,7 +31,7 @@
 
 [PUB] journal-20170218-0.tex
 
-  intro to th spiritual state of being in @logexist
+  intro to th spiritual state of being (@logexist)
 
 [PUB] journal-20170217-0.tex
 
@@ -27,7 +39,7 @@
 
 [PUB] journal-20170216-0.tex
 
-  belief @syntelos
+  belief (@syntelos)
 
 
 +-+-+
