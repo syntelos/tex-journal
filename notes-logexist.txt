@@ -1,69 +1,20 @@
 
 +-+-+
 
- thought, language, communication and philosophy
+ thought and philosophy
 
-  instrumentation
+   metaphysics
 
-    The spirit and mind are the first instruments of theory and
-    practice.  This is cause for elucidation identified as
-    metaphysics.
+     academic (breadth of study) definition
 
-    The metaphysial domain has uncertainty and incompleteness.  As a
-    result, its analysis is abstract from these issues.  The context
-    of language and communication so differs from the objective of
-    analysis that the crispness of mathematical logic is subjugated by
-    the uncertainty and incompleteness of the human metaphysical
-    domain.
+     theoretical (depth of study) definition
 
-    The metaphysical dynamical system may not have an observable
-    temporal domain.  In ANW’s Reflections he describes the dynamic of
-    self satisfaction deriving a future from a past in a complexity
-    (that exists beyond the resolition of the temporal sense of
-    process [TBD]).  “Why did I do that?  I don’t know.”.  The process
-    of cause cannot be traced because it cannot be ordered
-    sequentially according to the demands of language, speech, and
-    communication.
+   incompleteness
 
-  thought
-
-    (self evident?)
-
-  knowledge
-
-    representation of [thought]
-
-  communication
-
-    the preservation of [thought] with respect to consciousness
-
-  language 
-
-    the representation of [knowledge] in (degrees of) certainty and
-    incertainty and confidence and fuzzyness
-
-  metaphysics 
-
-    the [consideration] of mind and experience with respect to the
-    arts and sciences as instrument of theory and measurement
-
-  analysis
-
-    recording and dissecting [thought] as instrument to theory and
-    measurement
-
-  philosophy
-
-    a particular [record] of thought in pursuit of reason and humanity
-
-
-  20170217-0 (language, existentially) would fail this measure as a
-             qualification, having focused on elements thought
-
-  20170226-0 (across the history of language) is a nice bracket
-
-+-+-+
-
+     Metaphysical Incompleteness, or Heidegger's Incompleteness, can be
+     employed to represent uncertainty in temporal ordering and
+     indeterminate leaves of knowledge of the metaphysical domain (mind
+     and spirit of the homo sapien / instrument of theory and practice).
 
 +-+-+
 
@@ -83,29 +34,75 @@
 
      informal,- informal subjective, informal objective, informal inductive subjective, informal inductive fiction
 
-
 +-+-+
 
- a deep look into the dynamical consciousness
+  language and communication
 
-     the inner consciousness is beyond the resolution of features from
-     the outer consciousness (incompleteness), however the two have a
-     far more complex relationship than described earlier.
+    instrumentation
 
-   individual variances
+      The spirit and mind are the first instruments of theory and
+      practice.  This is cause for elucidation identified as
+      metaphysics.
 
-     it's likely that individual genetics determine individual
-     properties of the consciousness
+      The metaphysial domain has uncertainty and incompleteness.  As a
+      result, its analysis is abstract from these issues.  The context
+      of language and communication so differs from the objective of
+      analysis that the crispness of mathematical logic is subjugated by
+      the uncertainty and incompleteness of the human metaphysical
+      domain.
 
-   interactions within
+      The metaphysical dynamical system may not have an observable
+      temporal domain.  In ANW’s Reflections he describes the dynamic of
+      self satisfaction deriving a future from a past in a complexity
+      (that exists beyond the resolition of the temporal sense of
+      process [TBD]).  “Why did I do that?  I don’t know.”.  The process
+      of cause cannot be traced because it cannot be ordered
+      sequentially according to the demands of language, speech, and
+      communication.
 
-     the interactions and sensitivities of the consciousness are
-     available to the consciousness
+    language
 
-   living structures
+      via [ANW/Re] human natural language exists in the metaphysical
+      domain (uncertainty in temporality and incompleteness in
+      semantics), the pursuit of grammar in natural language
+      demonstrates this (abstract) incompleteness.
 
-     memories and behaviors within the consciousness have lifecycles
-     that are available to the consciousness
+    thought
+
+      (self evident?)
+
+    knowledge
+
+      representation of [thought]
+
+    communication
+
+      the preservation of [thought] with respect to consciousness
+
+    language 
+
+      the representation of [knowledge] in (degrees of) certainty and
+      incertainty and confidence and fuzzyness
+
+    metaphysics 
+
+      the [consideration] of mind and experience with respect to the
+      arts and sciences as instrument of theory and measurement
+
+    analysis
+
+      recording and dissecting [thought] as instrument to theory and
+      measurement
+
+    philosophy
+
+      a particular [record] of thought in pursuit of reason and humanity
+
+
+  20170217-0 (language, existentially) would fail this measure as a
+             qualification, having focused on elements thought
+
+  20170226-0 (across the history of language) is a nice bracket
 
 
 +-+-+
@@ -149,5 +146,28 @@
   faith.
 
   [rewrite from 20170213-0]
+
++-+-+
+
+ a deep look into the dynamical consciousness
+
+     the inner consciousness is beyond the resolution of features from
+     the outer consciousness (incompleteness), however the two have a
+     far more complex relationship than described earlier.
+
+   individual variances
+
+     it's likely that individual genetics determine individual
+     properties of the consciousness
+
+   interactions within
+
+     the interactions and sensitivities of the consciousness are
+     available to the consciousness
+
+   living structures
+
+     memories and behaviors within the consciousness have lifecycles
+     that are available to the consciousness
 
 +-+-+
