@@ -42,6 +42,8 @@
 
      informal,- informal subjective, informal objective, informal inductive subjective, informal inductive fiction
 
+     world,- visual, body, sensory awareness, simulated awareness, fiction, nonfiction
+
 +-+-+
 
   language and communication
