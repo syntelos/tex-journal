@@ -1,0 +1,17 @@
+
++-+-+
+
+  operational logic, or mathematical logic and object oriented
+  programming
+
+    the domains reachable from mathematical logic are only partially
+    reachable from object oriented programming
+
+    are finer details available via computing on a larger scale as
+    across the network?
+
+    mathematical objects as host:port identities may exist or not and
+    then possess arbitrary features finer than fields and methods.
+
++-+-+
+
