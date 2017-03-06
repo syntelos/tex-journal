@@ -16,6 +16,12 @@
     conscience is the abstraction of "world beliefs" within the inner
     consciousness
 
+    separate from conceptions of "world validity" (coherence world
+    view and complementarity of world as viewed with self inherent
+    talents and skills and situtation)
+
+    projective (of self rather) than immersive (of self)
+
 +-+-+
 
   thought and philosophy
@@ -62,9 +68,11 @@
 
 	nonfiction,- belief boolean (as above)
 
-      informal,- informal subjective, informal objective, informal inductive subjective, informal inductive fiction
+      informal,- informal subjective, informal objective, informal
+               inductive subjective, informal inductive fiction
 
-      world,- visual, body, sensory awareness, simulated awareness, fiction, nonfiction
+      world,- immediate awareness, visual, body, sensory awareness,
+            simulated awareness, fiction, nonfiction
 
 +-+-+
 
