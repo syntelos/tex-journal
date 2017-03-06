@@ -1,5 +1,6 @@
 #!/bin/bash
 #
+prefix=journal
 
 function usage {
     cat<<EOF>&2
@@ -11,13 +12,33 @@ Description
 
   Print current file date and item for file name extension 'tex'.
 
+
+Synopsis
+
+  $0  [0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
+
+Description
+
+  Absolute addressing reference, YYYYMMDD for 
+  "ls ${prefix}-{ref}*.fext".
+
+
 Synopsis
 
   $0  [a-z][a-z][a-z]
 
 Description
 
-  Print current file date and item for file name extension '\$1'.
+  Output with file name extension '[a-z][a-z][a-z]'.
+
+
+Synopsis
+
+  $0  '*'
+
+Description
+
+  Output with file name extension '*'.
 
 
 Synopsis
@@ -26,8 +47,8 @@ Synopsis
 
 Description
 
-  Delta arithmetic over current file date (%d-1) or item (%i+1) for
-  single digit N.
+  Relative addressing reference in delta arithmetic over current file
+  date (%d-1) or item (%i+1) for single digit N.
 
 
 Synopsis
@@ -36,7 +57,8 @@ Synopsis
 
 Description
 
-  Optional file name substring.
+  Relative addressing reference including optional file name suffix
+  substring, e.g., "${prefix}-YYYYMMDD-I-SSSSS.fext".
 
 
 EOF
@@ -49,6 +71,8 @@ fext=tex
 del_date=0
 del_item=0
 substring=''
+ref=''
+
 
 #
 #
@@ -83,9 +107,16 @@ do
 	[a-z][a-z][a-z])
 	    fext="${1}"
 	    ;;
+
 	\*)
 	    fext="${1}"
 	    ;;
+
+	[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]*)
+
+	    ref="${1}"
+	    ;;
+
 	*)
 	    usage
 	    ;;
@@ -93,15 +124,21 @@ do
     shift
 done
 
-#
-#set -x
-#
-file=$(ls journal-*.{txt,tex,png,pdf} | sort -V | egrep -ve '[0-9][0-9][0-9][0-9][0-9][0-9]-[0-9]-[a-zA-Z]' | tail -n 1 )
+if [ -n "${ref}" ]
+then
+
+    file=$(ls ${prefix}-*.{txt,tex,png,pdf} | sort -V | egrep -e "${ref}" | head -n 1 )
+
+else
+
+    file=$(ls ${prefix}-*.{txt,tex,png,pdf} | sort -V | egrep -ve '[0-9][0-9][0-9][0-9][0-9][0-9]-[0-9]-[a-zA-Z]' | tail -n 1 )
+
+fi
 
 if [ -n "${file}" ]&&[ -f "${file}" ]
 then
 
-    digits=$(echo ${file} | sed 's%journal-%%; s%\..*$%%;' )
+    digits=$(echo ${file} | sed "s%${prefix}-%%; s%\..*\$%%;" )
 
     if [ "0" != "${del_date}" ] || [ "0" != "${del_item}" ]
     then
@@ -119,9 +156,9 @@ then
 	    base_date=$(( ${base_date} ${del_date} ))
 	fi
 
-	base="journal-${base_date}-${base_item}"
+	base="${prefix}-${base_date}-${base_item}"
     else
-	base="journal-${digits}"
+	base="${prefix}-${digits}"
     fi
 
 
@@ -143,3 +180,4 @@ $0: file not found.
 EOF
     exit 1
 fi
+
