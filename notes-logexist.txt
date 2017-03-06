@@ -143,25 +143,25 @@
 
 +-+-+
 
-[PUB] journal-20170218-2.tex
+[PUB] journal-20170218-2.tex (@logexist)
 
-  the dynamical system of consciousness (@logexist)
+  the dynamical system of consciousness
 
-[PUB] journal-20170219-0.tex
+[PUB] journal-20170219-0.tex (@logexist)
 
-  consciousness, framed (@logexist)
+  consciousness, framed
 
-[PUB] journal-20170218-0.tex
+[PUB] journal-20170218-0.tex (@logexist)
 
-  intro to th spiritual state of being (@logexist)
+  intro to th spiritual state of being
 
-[PUB] journal-20170217-0.tex
+[PUB] journal-20170217-0.tex (@syntelos)
 
-  language, existentially (@syntelos)
+  language, existentially
 
-[PUB] journal-20170216-0.tex
+[PUB] journal-20170216-0.tex (@syntelos)
 
-  belief (@syntelos)
+  belief
 
 +-+-+
 
