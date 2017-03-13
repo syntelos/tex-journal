@@ -10,7 +10,7 @@ Synopsis
 
 Description
 
-  Print current file date and item for file name extension 'tex'.
+  Print current file for file name extension 'tex'.
 
 
 Synopsis
@@ -53,12 +53,22 @@ Description
 
 Synopsis
 
-  $0 %[s]S
+  $0 %p'prefix'
+
+Description
+
+  Relative addressing reference to file name prefix, i.e.,
+  "prefix-YYYYMMDD-I.fext".
+
+
+Synopsis
+
+  $0 %s'subtitle'
 
 Description
 
   Relative addressing reference including optional file name suffix
-  substring, e.g., "${prefix}-YYYYMMDD-I-SSSSS.fext".
+  subtitle, e.g., "${prefix}-YYYYMMDD-I-subtitle.fext".
 
 
 EOF
@@ -70,7 +80,7 @@ EOF
 fext=tex
 del_date=0
 del_item=0
-substring=''
+subtitle=''
 ref=''
 
 
@@ -96,8 +106,12 @@ do
 	    del_item="$(echo ${del_item} | sed 's/./& /; s/^ //; s/ $//; s/^[0-9]/+ &/;')"
 	    ;;
 
+	%p*)
+	    prefix=$(echo "${1}" | sed 's^%p^^')
+	    ;;
+
 	%s*)
-	    substring=$(echo "${1}" | sed 's^%s^^')
+	    subtitle=$(echo "${1}" | sed 's^%s^^')
 	    ;;
 
 	[+-]*)
@@ -124,22 +138,25 @@ do
     shift
 done
 
+#
 if [ -n "${ref}" ]
 then
 
-    file=$(ls ${prefix}-*.{txt,tex,png,pdf} | sort -V | egrep -e "${ref}" | head -n 1 )
+    file=$(2>/dev/null ls ${prefix}-*.{txt,tex,png,pdf} | sort -V | egrep -e "${ref}" | head -n 1 )
 
 else
 
-    file=$(ls ${prefix}-*.{txt,tex,png,pdf} | sort -V | egrep -ve '[0-9][0-9][0-9][0-9][0-9][0-9]-[0-9]-[a-zA-Z]' | tail -n 1 )
+    file=$(2>/dev/null ls ${prefix}-*.{txt,tex,png,pdf} | sort -V | egrep -ve '[0-9][0-9][0-9][0-9][0-9][0-9]-[0-9]-[a-zA-Z]' | tail -n 1 )
 
 fi
 
+#
 if [ -n "${file}" ]&&[ -f "${file}" ]
 then
 
     digits=$(echo ${file} | sed "s%${prefix}-%%; s%\..*\$%%;" )
 
+    #
     if [ "0" != "${del_date}" ] || [ "0" != "${del_item}" ]
     then
 	base_date=$(echo "${digits}" | sed 's%-.$%%;')
@@ -161,14 +178,30 @@ then
 	base="${prefix}-${digits}"
     fi
 
-
-    if [ -n "${substring}" ]
+    #
+    if [ -n "${subtitle}" ]
     then
-	file="${base}-${substring}.${fext}"
+	base="${base}-${subtitle}"
+    fi
+
+    #
+    if [ '*' = "${fext}" ]||[ -f "${base}.${fext}" ]
+    then
+	file="${base}.${fext}"
+
+    elif [ -f "${base}.tex" ]
+    then
+	file="${base}.tex"
+
+    elif [ -f "${base}.txt" ]
+    then
+	file="${base}.txt"
+
     else
 	file="${base}.${fext}"
     fi
 
+    #
     echo "${file}"
 
     exit 0
