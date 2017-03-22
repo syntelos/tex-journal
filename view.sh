@@ -1,37 +1,30 @@
 #!/bin/bash
 
-file_pdf=$(./file.sh $* pdf | egrep '\.pdf$' )
+file_dvi=$(./file.sh $* dvi | egrep '\.dvi$' )
 
 file_png=$(./file.sh $* png | egrep '\.png$' )
-
-file_dvi=$(./file.sh $* dvi | egrep '\.dvi$' )
 
 file_txt=$(./file.sh $* txt | egrep '\.txt$' )
 
 
-if [ -f "${file_png}" ]
+if [ -f "${file_dvi}" ]
 then
-    eog ${file_png} &
+    xdvi ${file_dvi} &
 else
 
-    if [ -f "${file_pdf}" ]
+    if [ -f "${file_png}" ]
     then
-	2>/dev/null 1>/dev/null evince ${file_pdf} &
+	eog ${file_png} &
     else
 
 	if [ -f "${file_txt}" ]
 	then
 	    cat -n ${file_txt}
 	else
-	    if [ -f "${file_dvi}" ]
-	    then
-		xdvi ${file_dvi}  &
-	    else
-		cat<<EOF>&2
-$0: file {pdf,png,dvi,txt} not found.
+	    cat<<EOF>&2
+$0: file {dvi,png,txt} not found.
 EOF
-		exit 1
-	    fi
+	    exit 1
 	fi
     fi
 fi
