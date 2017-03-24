@@ -1,6 +1,6 @@
 #!/bin/bash
 
-fext=txt
+fext=tex
 
 function usage {
   cat<<EOF
