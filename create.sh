@@ -3,7 +3,7 @@
 prefix=journal
 subtitle=''
 yyyymmdd=$(yyyymmdd)
-index=0
+
 
 function usage {
     cat<<EOF>&2
@@ -59,13 +59,36 @@ do
 done
 
 #
+# REQ-IX-ONE
+#
+#  Accept imports from manually generated indexing
+#
+index=1
 file=${prefix}-${yyyymmdd}-${index}.tex
 
-while [ -f ${file} ]
-do
-    index=$(( ${index} + 1 ))
+if [ -f ${file} ]
+then
+    
+    while [ -f ${file} ]
+    do
+	index=$(( ${index} + 1 ))
+	file=${prefix}-${yyyymmdd}-${index}.tex
+    done
+else
+    #
+    # REQ-IX-ZERO
+    #
+    #  Produce machine generated indexing
+    #
+    index=0
     file=${prefix}-${yyyymmdd}-${index}.tex
-done
+
+    while [ -f ${file} ]
+    do
+	index=$(( ${index} + 1 ))
+	file=${prefix}-${yyyymmdd}-${index}.tex
+    done
+fi
 
 #
 if [ -n "${subtitle}" ]
