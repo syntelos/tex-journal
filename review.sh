@@ -51,6 +51,7 @@ do
 	    ;;
 	*)
 	    usage
+	    exit 1
 	    ;;
     esac
     shift

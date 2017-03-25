@@ -116,6 +116,7 @@ do
 
 	[+-]*)
 	    usage 
+	    exit 1
 	    ;;
 
 	[a-z][a-z][a-z])
@@ -133,6 +134,7 @@ do
 
 	*)
 	    usage
+	    exit 1
 	    ;;
     esac
     shift
