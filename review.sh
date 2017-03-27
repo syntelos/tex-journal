@@ -34,7 +34,7 @@ log=/tmp/review.$$
 
 r_del=false
 
-re=2017
+re=$(yyyymmdd)
 
 #
 while [ -n "${1}" ]
