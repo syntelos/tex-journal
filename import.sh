@@ -1,5 +1,6 @@
 #!/bin/bash
 
+overwrite=false
 
 src_pr=distance
 src_fx=txt
@@ -13,7 +14,7 @@ function usage {
 
 Synopsis
 
- $0 [-s src-name]
+ $0 [-s src-name] [-o] 
 
 Description
 
@@ -22,12 +23,19 @@ Description
  Optionally redefine source from '${src_pr}' 
  to 'src-name'.
 
+ Optionally overwrite target from source.
+
 EOF
 }
 
 while [ -n "${1}" ]
 do
     case "${1}" in
+
+	-o)
+	    overwrite=true
+	    shift
+	    ;;
 
 	-s)
 	    shift
@@ -59,15 +67,25 @@ then
     do
 	tgt=$(basename ${src} .${src_fx} | sed "s/${src_pr}/${tgt_pr}/").${tgt_fx}
 
-	if [ -f "${tgt}" ]
+	if [ -f "${tgt}" ]&&[ 'false' = "${overwrite}" ]
 	then
 	    echo "X ${tgt}"
-	else
+
+	elif [ "txt" = "${src_fx}" ]&&[ "tex" = "${tgt_fx}" ]
+	then
 	    echo '\input preamble' > ${tgt}
 	    echo >> ${tgt}
 	    cat ${src} >> ${tgt}
 	    echo >> ${tgt}
 	    echo '\bye' >> ${tgt}
+
+	    2>/dev/null git add ${tgt}
+
+	    echo "U ${tgt}"
+
+	elif [ "tex" = "${src_fx}" ]&&[ "txt" = "${tgt_fx}" ]
+	then
+	    egrep -v '^\\(input|bye)' ${src} > ${tgt}
 
 	    2>/dev/null git add ${tgt}
 
