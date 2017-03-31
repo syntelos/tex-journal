@@ -153,6 +153,11 @@ done
 #     filter-exclude the output for its own existence-expectation
 #     requirement.
 #
+#     The output of a nonexistent file reference (see "GEN++", below)
+#     is performed with user input FEXT.  
+#
+#              git mv $(./file.sh #old) $(./file.sh new)
+#
 #
 #   REQ-REF-QUERY
 #
@@ -209,9 +214,13 @@ then
     fi
 
     #
-    if [ '*' = "${fext}" ]||[ -f "${base}.${fext}" ]
+    if [ '*' = "${fext}" ] #||[ -f "${base}.${fext}" ]
     then
 	file="${base}.${fext}"
+
+    elif [ -n "${fext}" ]
+    then
+	file="${base}.${fext}"  ## (GEN++)
 
     elif [ -f "${base}.tex" ]
     then
