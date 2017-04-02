@@ -1,0 +1,23 @@
+\input preamble-png
+
+The vast amount of astronomical data requires an association between
+the pixel coordinate system and the world or physical coordinate
+system.  For example, an array of spectral flux measurements needs to
+be associated with wavelengths through some sort of dispersion
+solution, or an array of time-resolved flux measurements needs to be
+associated with actual times in UTC.  In the simplest cases, these
+associations can be expressed in linear terms: $$ world\ coordinate =
+pixel\ coordinate \times scale + offset$$ where scale is the pixel
+size (in world coordinate units) and offset is a zero-point
+correction.  In more common cases, however, the relation between pixel
+coordinates and world coordinates is nonlinear.
+
+\bigskip
+
+\leftline{\hfil {\bf World coordinate systems representations}\hfilneg}
+\leftline{\hfil {\bf within the FITS Format}\hfilneg}
+
+\leftline{\hfil Hanish, Wells, 1988\hfilneg}
+
+
+\bye
