@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 prefix=journal
-
+fext=''
 
 function usage {
     cat<<EOF>&2
@@ -42,7 +42,12 @@ function serialize {
 	then
 	    # RRRRRRRR-R
 
-	    echo ${file}
+	    if [ -n "${fext}" ]
+	    then
+		echo ${file} | sed "s%\.[a-z][a-z][a-z]\$%.${fext}%"
+	    else
+		echo ${file} 
+	    fi
 	else
 	    # RRRRRRRR
 
@@ -54,7 +59,12 @@ function serialize {
     then
 	# RRRRRRRR
 
-	echo ${leader}
+	if [ -n "${fext}" ]
+	then
+	    echo ${leader} | sed "s%\.[a-z][a-z][a-z]\$%.${fext}%"
+	else
+	    echo ${leader} 
+	fi
     fi
     return 0
 }
@@ -82,6 +92,11 @@ do
 	[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9])
 
 	    ref="${1}"
+	    ;;
+
+	[a-z][a-z][a-z])
+
+	    fext="${1}"
 	    ;;
 
 	*)
