@@ -1,0 +1,5 @@
+                  -*-outline-*-
+
+* last.sh
+** missing fext operand 
+
