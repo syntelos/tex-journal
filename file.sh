@@ -175,7 +175,7 @@ then
 
 else
 
-    file=$(2>/dev/null ls ${prefix}-*.{txt,tex,png,pdf} | sort -V | egrep -ve '[0-9][0-9][0-9][0-9][0-9][0-9]-[0-9]-[a-zA-Z]' | tail -n 1 )
+    file=$(2>/dev/null ls ${prefix}-*.{txt,tex,png,pdf} | sort -V | egrep -e '[0-9][0-9][0-9][0-9][0-9][0-9]-[0-9]-[a-zA-Z]' | tail -n 1 )
 
 fi
 
@@ -241,9 +241,6 @@ then
 
 else
 
-    cat<<EOF>&2
-$0: file not found.
-EOF
+    1>&2 echo "$0 error, file not found."
     exit 1
 fi
-

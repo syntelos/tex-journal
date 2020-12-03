@@ -1,15 +1,24 @@
 #!/bin/bash
 
-if flist=$(./flist.sh $* ) && [ -n "${flist}" ]
+if src=$(./file.sh)&& [ -n "${src}" ]&& tgt=$(./file.sh $* )&& [ -n "${tgt}" ]&& [ "${src}" != "${tgt}" ]
 then
-  for fel in ${flist} 
-  do
-    echo ${fel} | sed 's%^[a-z]*-%%; s%\.[a-z][a-z][a-z]$%%;'
-  done
-  exit 0
+    read -p "[yN] git mv ${src} ${tgt} ?" -n 1 r_gmv
+    case "${r_gmv}" in
+         [yY])
+              echo git mv "${src}" "${tgt}"
+              git mv "${src}" "${tgt}"
+              ;;
+            *)
+              echo skipping
+              ;;
+    esac
+    exit 0
 else
   cat<<EOF>&2
-$0 error file not found.
+Synopsis
+
+  $0 %s<SUBTITLE>
+
 EOF
   exit 1
 fi

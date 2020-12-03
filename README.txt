@@ -34,6 +34,8 @@ Tool scripts
 
   search.sh               Page through TEX matching grep
 
+  subtitle.sh             Replace subtitle on FILE
+
   texf.sh                 FILE TEX
 
   undo-create.sh          Drop FILE
