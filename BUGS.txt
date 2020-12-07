@@ -1,0 +1,10 @@
+                  -*-outline-*-
+
+* file.sh
+** can pick last, but is otherwise full of bugs
+
+* create.sh
+** should use file
+
+
+
