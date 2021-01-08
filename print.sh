@@ -12,7 +12,7 @@ function usage {
   
 Synopsis
 
-  ${0} [[+-]{ps,pdf,png}] (optional file.sh args)
+  ${0} [[+-]{ps,pdf,png}] (optional current.sh args)
 
 Description
 
@@ -150,7 +150,7 @@ do
 done
 
 #
-src=$(./file.sh $* tex )
+src=$(./current.sh tex $* )
 
 name=$(basename ${src} .tex)
 
