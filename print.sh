@@ -1,5 +1,7 @@
 #!/bin/bash
 
+wd=$(dirname $0)
+
 gen_ps=false
 gen_pdf=false
 gen_png=true
@@ -150,7 +152,7 @@ do
 done
 
 #
-src=$(./current.sh tex $* )
+src=$(${wd}/current.sh tex $* )
 
 name=$(basename ${src} .tex)
 

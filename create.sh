@@ -1,4 +1,7 @@
 #!/bin/bash
+
+wd=$(dirname $0)
+
 #
 # documentation
 #
@@ -26,7 +29,7 @@ done
 #
 #
 #
-if file=$(./next.sh $*) &&[ -n "${file}" ]&&[ ! -f "${file}" ]
+if file=$(${wd}/next.sh $*) &&[ -n "${file}" ]&&[ ! -f "${file}" ]
 then
     cat<<EOF>${file}
 \input preamble

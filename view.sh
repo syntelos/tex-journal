@@ -1,10 +1,12 @@
 #!/bin/bash
 
-file_dvi=$(./current.sh dvi $* )
+wd=$(dirname $0)
 
-file_png=$(./current.sh png $* )
+file_dvi=$(${wd}/current.sh dvi $* )
 
-file_txt=$(./current.sh txt $* )
+file_png=$(${wd}/current.sh png $* )
+
+file_txt=$(${wd}/current.sh txt $* )
 
 
 if [ -f "${file_dvi}" ]

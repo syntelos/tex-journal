@@ -1,14 +1,16 @@
 #!/bin/bash
 
+wd=$(dirname $0)
 
-if file_png=$(./current.sh png $* ) &&[ -n "${file_png}" ]&&[ -f "${file_png}" ]
+
+if file_png=$(${wd}/current.sh png $* ) &&[ -n "${file_png}" ]&&[ -f "${file_png}" ]
 then
 
     gimp ${file_png}  &
 
     exit 0
 
-elif file_tex=$(./current.sh tex $* ) &&[ -n "${file_tex}" ]&&[ -f "${file_tex}" ]
+elif file_tex=$(${wd}/current.sh tex $* ) &&[ -n "${file_tex}" ]&&[ -f "${file_tex}" ]
 then
 
     emacs ${file_tex}  &
