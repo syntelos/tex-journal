@@ -1,5 +1,9 @@
 #!/bin/bash
 #
+# shell source working directory
+#
+wd=$(dirname $0)
+#
 # parameters 
 #
 parameters="$*"
@@ -79,8 +83,12 @@ function init_p {
         esac
     done
 
-    basename $(pwd) | sed 's/^tex-//'
-    return 0
+    if ${wd}/prefix.sh
+    then
+        return 0
+    else
+        return 1
+    fi
 }
 component_p=$(init_p)
 #
